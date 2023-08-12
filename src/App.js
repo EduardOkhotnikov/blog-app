@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import 'macro-css';
 import './App.css';
+
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Authors from './pages/Authors';
+import MostCommentPost from './pages/MostCommentPost';
+import MostLikePost from './pages/MostLikePost';
+import Header from './component/Header'
+import Footer from './component/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App clear">
+      <Router>
+        <Header/>
+        <Routes>
+          <Route path="/" element={<Authors/>}></Route>
+          <Route path="/mostcommentpost" element={<MostCommentPost/>}></Route>
+          <Route path=" /mostlikepost" element={<MostLikePost/>}></Route>
+        </Routes>
+        <Footer/>
+      </Router>
+      
     </div>
   );
 }
